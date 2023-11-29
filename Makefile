@@ -5,12 +5,18 @@ NAME = miniRT
 HDR_DIR = ./include/
 HDR = \
 	$(HDR_DIR)minirt.h \
-	$(HDR_DIR)minilibx.h
+	$(HDR_DIR)minilibx.h \
+	$(HDR_DIR)class.h
 
 SRCS = \
 	./src/main.c \
 	./src/minilibx/init.c \
-	./src/minilibx/hook.c
+	./src/minilibx/hook.c \
+	./src/class/color.c \
+	./src/class/vector.c \
+	./src/class/pixel.c \
+	./src/class/view.c \
+	./src/class/ray.c
 
 OBJS = $(SRCS:.c=.o)
 

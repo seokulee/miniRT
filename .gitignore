@@ -2,4 +2,5 @@
 .vscode
 *.pdf
 *.o
+*.a
 miniRT

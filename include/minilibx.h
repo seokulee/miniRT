@@ -5,8 +5,8 @@
 # include "mlx.h"
 
 /* Window */
-# define WIDTH 256
-# define HEIGHT 256
+# define WIDTH 400
+# define HEIGHT 300
 # define TITLE "miniRT"
 
 /* Hooking event */
