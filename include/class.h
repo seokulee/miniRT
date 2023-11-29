@@ -18,6 +18,8 @@ typedef struct s_vector
 t_vector new_vector(double x, double y, double z);
 t_vector add_vector(t_vector v1, t_vector v2);
 t_vector subtract_vector(t_vector v1, t_vector v2);
+t_vector multiply_scalar(t_vector vector, double scalar);
+double dot_product(t_vector v1, t_vector v2);
 
 /* ------------------------- class view ------------------------- */
 typedef struct s_view
@@ -50,16 +52,5 @@ typedef struct s_ray
 } t_ray;
 
 t_ray ray_from_camera(t_pixel pixel, t_view view);
-
-/* ------------------------- class color ------------------------- */
-typedef struct s_color
-{
-	double r;
-	double g;
-	double b;
-} t_color;
-
-t_color get_color(t_ray *ray);
-int convert_color(t_color color);
 
 #endif

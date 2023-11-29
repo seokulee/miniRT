@@ -6,7 +6,9 @@ HDR_DIR = ./include/
 HDR = \
 	$(HDR_DIR)minirt.h \
 	$(HDR_DIR)minilibx.h \
-	$(HDR_DIR)class.h
+	$(HDR_DIR)class.h \
+	$(HDR_DIR)object.h \
+	$(HDR_DIR)color.h
 
 SRCS = \
 	./src/main.c \
@@ -16,7 +18,9 @@ SRCS = \
 	./src/class/vector.c \
 	./src/class/pixel.c \
 	./src/class/view.c \
-	./src/class/ray.c
+	./src/class/ray.c \
+	./src/class/object/object.c \
+	./src/class/object/sphere.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -7,8 +7,12 @@ int main(void)
 {
 	t_view	view;
 	t_mlx	mlx;
+	t_object sphere;
 
 	view = new_view(WIDTH, HEIGHT, new_vector(0, 0, 0)); // camera position : (0, 0, 0)
+	sphere = new_sphere(new_vector(0, 0, -5), 2);
+
+	// rendering
 	mlx = new_mlx();
 	int j = 0;
 	while (j < HEIGHT) {
@@ -16,7 +20,7 @@ int main(void)
 		while (i < WIDTH) {
 			t_pixel pixel = new_pixel(i, j);
 			t_ray ray = ray_from_camera(pixel, view);
-			draw_pixel(&mlx, pixel, convert_color(get_color(&ray)));
+			draw_pixel(&mlx, pixel, convert_color(get_color(&ray, sphere)));
 			i++;
 		}
 		j++;

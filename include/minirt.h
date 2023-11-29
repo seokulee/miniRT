@@ -3,5 +3,7 @@
 
 # include "minilibx.h"
 # include "class.h"
+# include "object.h"
+# include "color.h"
 
 #endif
