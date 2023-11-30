@@ -15,7 +15,8 @@ SRCS = \
 	./src/minilibx/init.c \
 	./src/minilibx/hook.c \
 	./src/class/color.c \
-	./src/class/vector.c \
+	./src/class/vector/vector.c \
+	./src/class/vector/unit.c \
 	./src/class/pixel.c \
 	./src/class/view.c \
 	./src/class/ray.c \

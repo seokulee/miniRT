@@ -15,13 +15,18 @@ typedef struct s_hittable
     double radius;
 } t_hittable;
 
-/* util */
-t_bool is_hit(t_ray *ray, t_hittable hittable);
-
-/* constructor */
+/* sphere */
 t_hittable new_sphere(t_vector center, double radius);
+double root(t_ray *ray, t_hittable sphere);
 
-/* discriminant */
-double sp_discriminant(t_ray *ray, t_hittable sphere);
+/* ------------------------- hit record ------------------------- */
+typedef struct s_hit_record
+{
+    double t;
+    t_bool is_hit;
+    t_vector normal;
+} t_hit_record;
+
+t_hit_record new_hit_record(t_ray *ray, t_hittable hittable);
 
 #endif

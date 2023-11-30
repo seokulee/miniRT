@@ -12,8 +12,13 @@ t_color	new_color(double r, double g, double b)
 
 t_color	get_color(t_ray *ray, t_hittable hittable)
 {
-	if (is_hit(ray, hittable))
-		return new_color(1, 0, 0);
+	t_hit_record rec = new_hit_record(ray, hittable);
+	if (rec.is_hit)
+		return new_color(
+			(rec.normal.x + 1) * 0.5,
+			(rec.normal.y + 1) * 0.5,
+			(rec.normal.z + 1) * 0.5
+		);
 
 	t_color white = new_color(1, 1, 1);
 	t_color	sky_blue = new_color(0.5, 0.7, 1);

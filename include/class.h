@@ -1,6 +1,8 @@
 #ifndef CLASS_H
 # define CLASS_H
 
+#include <math.h>
+
 /* ------------------------- class boolean ------------------------- */
 typedef int t_bool;
 
@@ -20,6 +22,7 @@ t_vector add_vector(t_vector v1, t_vector v2);
 t_vector subtract_vector(t_vector v1, t_vector v2);
 t_vector multiply_scalar(t_vector vector, double scalar);
 double dot_product(t_vector v1, t_vector v2);
+t_vector unit(t_vector vector);
 
 /* ------------------------- class view ------------------------- */
 typedef struct s_view
@@ -47,10 +50,11 @@ t_vector pixel_to_vector(t_pixel pixel, t_view view);
 /* ------------------------- class ray ------------------------- */
 typedef struct s_ray
 {
-	t_vector pos; // position
+	t_vector origin;
 	t_vector dir; // direction
 } t_ray;
 
 t_ray ray_from_camera(t_pixel pixel, t_view view);
+t_vector point_on_ray(t_ray *ray, double t);
 
 #endif

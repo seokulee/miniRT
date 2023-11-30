@@ -10,16 +10,20 @@ t_hittable new_sphere(t_vector center, double radius)
 	return sphere;
 }
 
-double sp_discriminant(t_ray *ray, t_hittable sphere)
+double root(t_ray *ray, t_hittable sphere)
 {
+	t_vector oc;
 	double a;
-	double b;
+	double half_b;
 	double c;
-	t_vector center_to_ray;
+	double discriminant;
 
-	center_to_ray = subtract_vector(ray->pos, sphere.center);
+	oc = subtract_vector(ray->origin, sphere.center);
 	a = dot_product(ray->dir, ray->dir);
-	b = dot_product(multiply_scalar(ray->dir, 2), center_to_ray);
-	c = dot_product(center_to_ray, center_to_ray) - sphere.radius * sphere.radius;
-	return (b * b - 4 * a * c);
+	half_b = dot_product(ray->dir, oc);
+	c = dot_product(oc, oc) - sphere.radius * sphere.radius;
+	discriminant = half_b * half_b - a * c;
+	if (discriminant < 0)
+		return -1;
+	return (-half_b - sqrt(discriminant)) / a;
 }
