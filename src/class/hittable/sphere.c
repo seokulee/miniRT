@@ -1,8 +1,8 @@
-#include "object.h"
+#include "hittable.h"
 
-t_object new_sphere(t_vector center, double radius)
+t_hittable new_sphere(t_vector center, double radius)
 {
-	t_object sphere;
+	t_hittable sphere;
 
 	sphere.type = SPHERE;
 	sphere.center = center;
@@ -10,7 +10,7 @@ t_object new_sphere(t_vector center, double radius)
 	return sphere;
 }
 
-double sp_discriminant(t_ray *ray, t_object sphere)
+double sp_discriminant(t_ray *ray, t_hittable sphere)
 {
 	double a;
 	double b;

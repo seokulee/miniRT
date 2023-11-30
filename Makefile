@@ -7,7 +7,7 @@ HDR = \
 	$(HDR_DIR)minirt.h \
 	$(HDR_DIR)minilibx.h \
 	$(HDR_DIR)class.h \
-	$(HDR_DIR)object.h \
+	$(HDR_DIR)hittable.h \
 	$(HDR_DIR)color.h
 
 SRCS = \
@@ -19,8 +19,8 @@ SRCS = \
 	./src/class/pixel.c \
 	./src/class/view.c \
 	./src/class/ray.c \
-	./src/class/object/object.c \
-	./src/class/object/sphere.c
+	./src/class/hittable/hittable.c \
+	./src/class/hittable/sphere.c
 
 OBJS = $(SRCS:.c=.o)
 

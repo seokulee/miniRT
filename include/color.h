@@ -1,7 +1,7 @@
 #ifndef COLOR_H
 # define COLOR_H
 
-# include "object.h"
+# include "hittable.h"
 
 typedef struct s_color
 {
@@ -10,7 +10,7 @@ typedef struct s_color
 	double b;
 } t_color;
 
-t_color	get_color(t_ray *ray, t_object object);
+t_color	get_color(t_ray *ray, t_hittable hittable);
 int convert_color(t_color color);
 
 #endif

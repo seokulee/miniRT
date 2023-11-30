@@ -10,9 +10,9 @@ t_color	new_color(double r, double g, double b)
 	return color;
 }
 
-t_color	get_color(t_ray *ray, t_object object)
+t_color	get_color(t_ray *ray, t_hittable hittable)
 {
-	if (is_hit(ray, object))
+	if (is_hit(ray, hittable))
 		return new_color(1, 0, 0);
 
 	t_color white = new_color(1, 1, 1);

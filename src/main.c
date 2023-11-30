@@ -7,7 +7,7 @@ int main(void)
 {
 	t_view	view;
 	t_mlx	mlx;
-	t_object sphere;
+	t_hittable sphere;
 
 	view = new_view(WIDTH, HEIGHT, new_vector(0, 0, 0)); // camera position : (0, 0, 0)
 	sphere = new_sphere(new_vector(0, 0, -5), 2);
