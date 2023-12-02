@@ -7,10 +7,13 @@ int main(void)
 {
 	t_view	view;
 	t_mlx	mlx;
-	t_hittable sphere;
+	t_hittable_list world;
 
 	view = new_view(WIDTH, HEIGHT, new_vector(0, 0, 0)); // camera position : (0, 0, 0)
-	sphere = new_sphere(new_vector(0, 0, -5), 2);
+	init_list(&world);
+	add_object(&world, new_sphere(new_vector(-2, 0, -5), 2));
+	add_object(&world, new_sphere(new_vector(2, 0, -5), 2));
+	add_object(&world, new_sphere(new_vector(0, -1000, 0), 990));
 
 	// rendering
 	mlx = new_mlx();
@@ -20,7 +23,7 @@ int main(void)
 		while (i < WIDTH) {
 			t_pixel pixel = new_pixel(i, j);
 			t_ray ray = ray_from_camera(pixel, view);
-			draw_pixel(&mlx, pixel, convert_color(get_color(&ray, sphere)));
+			draw_pixel(&mlx, pixel, convert_color(calc_color(&ray, &world)));
 			i++;
 		}
 		j++;

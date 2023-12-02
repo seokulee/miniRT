@@ -20,7 +20,8 @@ SRCS = \
 	./src/class/pixel.c \
 	./src/class/view.c \
 	./src/class/ray.c \
-	./src/class/hittable/hittable.c \
+	./src/class/hittable/record.c \
+	./src/class/hittable/list.c \
 	./src/class/hittable/sphere.c
 
 OBJS = $(SRCS:.c=.o)

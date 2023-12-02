@@ -10,9 +10,19 @@ t_color	new_color(double r, double g, double b)
 	return color;
 }
 
-t_color	get_color(t_ray *ray, t_hittable hittable)
+t_color calc_color(t_ray *ray, t_hittable_list *world)
 {
-	t_hit_record rec = new_hit_record(ray, hittable);
+	t_hit_record rec;
+	t_hittable *object;
+
+	rec = new_hit_record();
+	object = world->dummy_first.next;
+	while (object)
+	{
+		calc_hit_record(&rec, ray, object);
+		object = object->next;
+	}
+
 	if (rec.is_hit)
 		return new_color(
 			(rec.normal.x + 1) * 0.5,

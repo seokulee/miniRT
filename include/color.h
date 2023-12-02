@@ -10,7 +10,7 @@ typedef struct s_color
 	double b;
 } t_color;
 
-t_color	get_color(t_ray *ray, t_hittable hittable);
+t_color calc_color(t_ray *ray, t_hittable_list *world);
 int convert_color(t_color color);
 
 #endif
