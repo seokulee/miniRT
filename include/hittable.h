@@ -51,6 +51,6 @@ typedef struct s_hit_record
 } t_hit_record;
 
 t_hit_record new_hit_record();
-void calc_hit_record(t_hit_record *rec, t_ray *ray, t_hittable *object);
+void calculate_hit(t_hit_record *rec, t_ray *ray, t_hittable *object);
 
 #endif

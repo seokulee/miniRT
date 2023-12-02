@@ -37,7 +37,7 @@ t_hit_record new_hit_record()
 	return rec;
 }
 
-void calc_hit_record(t_hit_record *rec, t_ray *ray, t_hittable *object)
+void calculate_hit(t_hit_record *rec, t_ray *ray, t_hittable *object)
 {
 	if (!is_hit(rec, ray, object))
 		return;
