@@ -1,45 +1,16 @@
-#include <stdio.h>
 #include "minirt.h"
-
-void	draw_pixel(t_mlx *mlx, t_pixel pixel, int color);
 
 int main(void)
 {
-	t_view	view;
-	t_mlx	mlx;
-	t_hittable_list world;
+	t_view view;
+	t_world world;
 
 	view = new_view(WIDTH, HEIGHT, new_vector(0, 0, 0)); // camera position : (0, 0, 0)
-	init_list(&world);
-	add_object(&world, new_sphere(new_vector(-2, 0, -5), 2));
-	add_object(&world, new_sphere(new_vector(2, 0, -5), 2));
-	add_object(&world, new_sphere(new_vector(0, -1000, 0), 990));
+	init_world(&world);
+	add_object(&world, new_sphere(new_vector(-2, 0, -5), 2, new_color(0.5, 0, 0)));
+	add_object(&world, new_sphere(new_vector(2, 0, -5), 2, new_color(0, 0.5, 0)));
+	add_object(&world, new_sphere(new_vector(0, -1000, 0), 990, new_color(1, 1, 1)));
+	add_light(&world, new_light(new_vector(0, 5, 0), new_color(1, 1, 1), 0.5));
 
-	// rendering
-	mlx = new_mlx();
-	int j = 0;
-	while (j < HEIGHT) {
-		int i = 0;
-		while (i < WIDTH) {
-			t_pixel pixel = new_pixel(i, j);
-			t_ray ray = ray_from_camera(pixel, view);
-			draw_pixel(&mlx, pixel, convert_color(calc_color(&ray, &world)));
-			i++;
-		}
-		j++;
-	}
-	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img, 0, 0);
-	mlx_hooks(&mlx);
-	mlx_loop(mlx.mlx);
-}
-
-void	draw_pixel(t_mlx *mlx, t_pixel pixel, int color)
-{
-	char	*dst;
-
-	if (pixel.x < 0 || pixel.x > WIDTH || pixel.y < 0 || pixel.y > HEIGHT) {
-		return ;
-	}
-	dst = mlx->addr + (pixel.y * mlx->line_size + pixel.x * (mlx->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	rendering(&view, &world);
 }

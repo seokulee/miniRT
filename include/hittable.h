@@ -4,6 +4,8 @@
 # include "class.h"
 # include <stdlib.h>
 
+# define EPSILON 1e-6
+
 typedef struct s_discriminant
 {
     double a;
@@ -24,28 +26,21 @@ struct s_hittable
     t_type type;
     t_vector center;
     double radius;
+    t_color color;
     t_hittable *next;
 };
 
 /* sphere */
-t_hittable *new_sphere(t_vector center, double radius);
+t_hittable *new_sphere(t_vector center, double radius, t_color color);
 t_discriminant sp_discriminant(t_ray *ray, t_hittable *sphere);
-
-/* ------------------------- hittable list ------------------------- */
-typedef struct s_hittable_list
-{
-    t_hittable dummy_first;
-    t_hittable *last;
-} t_hittable_list;
-
-void init_list(t_hittable_list *list);
-void add_object(t_hittable_list *list, t_hittable *hittable);
 
 /* ------------------------- hit record ------------------------- */
 typedef struct s_hit_record
 {
     double t;
     t_bool is_hit;
+    t_color color;
+    t_vector intersection;
     t_vector normal;
     t_bool is_inside;
 } t_hit_record;

@@ -5,8 +5,6 @@
 # include "mlx.h"
 
 /* Window */
-# define WIDTH 400
-# define HEIGHT 300
 # define TITLE "miniRT"
 
 /* Hooking event */
@@ -30,7 +28,7 @@ typedef struct s_mlx
 }   t_mlx;
 
 /* init.c */
-t_mlx	new_mlx();
+t_mlx	new_mlx(int width, int height);
 
 /* hook.c */
 void	mlx_hooks(t_mlx *mlx);

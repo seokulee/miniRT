@@ -1,6 +1,6 @@
 #include "class.h"
 
-t_view new_view(double w_width, double w_height, t_vector camera)
+t_view new_view(int w_width, int w_height, t_vector camera)
 {
 	t_view view;
 	double aspect_ratio;

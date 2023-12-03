@@ -5,7 +5,7 @@ double root(t_discriminant d, double max)
 	double root;
 
 	root = (-d.half_b - d.sqrt_d) / d.a;
-	if (root <= 0.0 || root >= max)
+	if (root <= EPSILON || root >= max)
 	{
 		root = (-d.half_b + d.sqrt_d) / d.a;
 	}
@@ -21,7 +21,7 @@ t_bool is_hit(t_hit_record *rec, t_ray *ray, t_hittable *object)
 	t = root(d, rec->t);
 	if (d.is_negative)
 		return FALSE;
-	if (t <= 0.0 || t >= rec->t)
+	if (t <= EPSILON || t >= rec->t)
 		return FALSE;
 	rec->t = t;
 	rec->is_hit = TRUE;
@@ -41,11 +41,13 @@ void calculate_hit(t_hit_record *rec, t_ray *ray, t_hittable *object)
 {
 	if (!is_hit(rec, ray, object))
 		return;
-	rec->normal = unit(subtract_vector(point_on_ray(ray, rec->t), object->center));
+	rec->color = object->color;
+	rec->intersection = point_on_ray(ray, rec->t);
+	rec->normal = unit(subtract_vector(rec->intersection, object->center));
 	rec->is_inside = FALSE;
 	if (dot_product(ray->dir, rec->normal) > 0.0)
 	{
-		rec->normal = multiply_scalar(rec->normal, -1);
+		rec->normal = reverse(rec->normal);
 		rec->is_inside = TRUE;
 	}
 }

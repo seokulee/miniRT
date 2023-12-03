@@ -8,21 +8,24 @@ HDR = \
 	$(HDR_DIR)minilibx.h \
 	$(HDR_DIR)class.h \
 	$(HDR_DIR)hittable.h \
-	$(HDR_DIR)color.h
+	$(HDR_DIR)world.h
 
 SRCS = \
 	./src/main.c \
+	./src/rendering.c \
+	./src/shading.c \
 	./src/minilibx/init.c \
 	./src/minilibx/hook.c \
 	./src/class/color.c \
 	./src/class/vector/vector.c \
-	./src/class/vector/unit.c \
+	./src/class/vector/util.c \
 	./src/class/pixel.c \
 	./src/class/view.c \
 	./src/class/ray.c \
 	./src/class/hittable/record.c \
-	./src/class/hittable/list.c \
-	./src/class/hittable/sphere.c
+	./src/class/hittable/sphere.c \
+	./src/class/world/world.c \
+	./src/class/world/light.c
 
 OBJS = $(SRCS:.c=.o)
 

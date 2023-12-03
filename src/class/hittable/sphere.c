@@ -1,6 +1,6 @@
 #include "hittable.h"
 
-t_hittable *new_sphere(t_vector center, double radius)
+t_hittable *new_sphere(t_vector center, double radius, t_color color)
 {
 	t_hittable *sphere;
 
@@ -8,6 +8,7 @@ t_hittable *new_sphere(t_vector center, double radius)
 	sphere->type = SPHERE;
 	sphere->center = center;
 	sphere->radius = radius;
+	sphere->color = color;
 	sphere->next = NULL;
 	return sphere;
 }

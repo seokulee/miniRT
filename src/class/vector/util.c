@@ -18,3 +18,8 @@ t_vector	unit(t_vector vector)
 	}
 	return vector;
 }
+
+t_vector reverse(t_vector vector)
+{
+	return multiply_scalar(vector, -1);
+}
