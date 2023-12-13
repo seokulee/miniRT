@@ -33,7 +33,7 @@ void rendering(t_view *view, t_world *world)
 		while (i < view->w_width)
 		{
 			t_pixel pixel = new_pixel(i, j);
-			t_ray ray = ray_from_camera(pixel, view);
+			t_ray ray = camera_to_pixel(pixel, view);
 			draw_pixel(&mlx, pixel, ray_tracing(&ray, world));
 			i++;
 		}

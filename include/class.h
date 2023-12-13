@@ -24,6 +24,7 @@ t_vector multiply_scalar(t_vector vector, double scalar);
 double dot_product(t_vector v1, t_vector v2);
 t_vector unit(t_vector vector);
 t_vector reverse(t_vector vector);
+double length(t_vector vector);
 
 /* ------------------------- class view ------------------------- */
 typedef struct s_view
@@ -55,7 +56,7 @@ typedef struct s_ray
 	t_vector dir; // direction
 } t_ray;
 
-t_ray ray_from_camera(t_pixel pixel, t_view *view);
+t_ray camera_to_pixel(t_pixel pixel, t_view *view);
 t_vector point_on_ray(t_ray *ray, double t);
 
 /* ------------------------- color ------------------------- */

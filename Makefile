@@ -8,12 +8,14 @@ HDR = \
 	$(HDR_DIR)minilibx.h \
 	$(HDR_DIR)class.h \
 	$(HDR_DIR)hittable.h \
-	$(HDR_DIR)world.h
+	$(HDR_DIR)world.h \
+	$(HDR_DIR)phong.h
 
 SRCS = \
 	./src/main.c \
 	./src/rendering.c \
-	./src/shading.c \
+	./src/shading/shading.c \
+	./src/shading/phong.c \
 	./src/minilibx/init.c \
 	./src/minilibx/hook.c \
 	./src/class/color.c \

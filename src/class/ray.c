@@ -1,6 +1,6 @@
 #include "class.h"
 
-t_ray	ray_from_camera(t_pixel pixel, t_view *view)
+t_ray	camera_to_pixel(t_pixel pixel, t_view *view)
 {
 	t_ray	ray;
 
