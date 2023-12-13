@@ -6,28 +6,30 @@ HDR_DIR = ./include/
 HDR = \
 	$(HDR_DIR)minirt.h \
 	$(HDR_DIR)minilibx.h \
-	$(HDR_DIR)class.h \
+	$(HDR_DIR)element.h \
 	$(HDR_DIR)hittable.h \
 	$(HDR_DIR)world.h \
-	$(HDR_DIR)phong.h
+	$(HDR_DIR)shading.h
 
 SRCS = \
 	./src/main.c \
 	./src/rendering.c \
-	./src/shading/shading.c \
-	./src/shading/phong.c \
+	./src/shading/phong_lighting.c \
+	./src/shading/constructor.c \
+	./src/shading/diffuse.c \
+	./src/shading/specular.c \
 	./src/minilibx/init.c \
 	./src/minilibx/hook.c \
-	./src/class/color.c \
-	./src/class/vector/vector.c \
-	./src/class/vector/util.c \
-	./src/class/pixel.c \
-	./src/class/view.c \
-	./src/class/ray.c \
-	./src/class/hittable/record.c \
-	./src/class/hittable/sphere.c \
-	./src/class/world/world.c \
-	./src/class/world/light.c
+	./src/world/element/color.c \
+	./src/world/element/vector/vector.c \
+	./src/world/element/vector/util.c \
+	./src/world/element/pixel.c \
+	./src/world/element/ray.c \
+	./src/world/hittable/record.c \
+	./src/world/hittable/sphere.c \
+	./src/world/world.c \
+	./src/world/light.c \
+	./src/world/view.c
 
 OBJS = $(SRCS:.c=.o)
 

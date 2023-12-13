@@ -1,4 +1,4 @@
-#include "class.h"
+#include "element.h"
 
 double	length(t_vector vector)
 {

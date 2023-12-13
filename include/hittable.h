@@ -1,7 +1,7 @@
 #ifndef HITTABLE_H
 # define HITTABLE_H
 
-# include "class.h"
+# include "element.h"
 # include <stdlib.h>
 
 # define EPSILON 1e-6

@@ -44,7 +44,7 @@ t_bool sp_hit(t_hit_record *rec, t_ray *ray, t_hittable *object)
 	if (!is_hit(rec, d))
 		return FALSE;
 	rec->color = object->color;
-	rec->hit_point = point_on_ray(ray, rec->t);
+	rec->hit_point = get_point_on_ray(ray, rec->t);
 	rec->normal = unit(subtract_vector(rec->hit_point, object->center));
 	rec->is_inside = FALSE;
 	if (dot_product(ray->dir, rec->normal) > 0.0)

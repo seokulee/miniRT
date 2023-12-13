@@ -1,4 +1,4 @@
-#include "class.h"
+#include "element.h"
 
 t_color new_color(double r, double g, double b)
 {

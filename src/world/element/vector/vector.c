@@ -1,4 +1,4 @@
-#include "class.h"
+#include "element.h"
 
 t_vector new_vector(double x, double y, double z)
 {

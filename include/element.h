@@ -1,15 +1,15 @@
-#ifndef CLASS_H
-# define CLASS_H
+#ifndef ELEMENT_H
+# define ELEMENT_H
 
 #include <math.h>
 
-/* ------------------------- class boolean ------------------------- */
+/* ------------------------- boolean ------------------------- */
 typedef int t_bool;
 
 # define TRUE 1;
 # define FALSE 0;
 
-/* ------------------------- class vector ------------------------- */
+/* ------------------------- vector ------------------------- */
 typedef struct s_vector
 {
 	double x;
@@ -26,20 +26,7 @@ t_vector unit(t_vector vector);
 t_vector reverse(t_vector vector);
 double length(t_vector vector);
 
-/* ------------------------- class view ------------------------- */
-typedef struct s_view
-{
-	int w_width;
-	int w_height;
-	double n_width;
-	double n_height;
-	t_vector camera;
-	t_vector left_top_from_cam;
-} t_view;
-
-t_view new_view(int w_width, int w_height, t_vector camera);
-
-/* ------------------------- class pixel ------------------------- */
+/* ------------------------- pixel ------------------------- */
 typedef struct s_pixel
 {
 	int x;
@@ -47,17 +34,16 @@ typedef struct s_pixel
 } t_pixel;
 
 t_pixel new_pixel(int x, int y);
-t_vector pixel_to_vector(t_pixel pixel, t_view *view);
 
-/* ------------------------- class ray ------------------------- */
+/* ------------------------- ray ------------------------- */
 typedef struct s_ray
 {
 	t_vector origin;
 	t_vector dir; // direction
 } t_ray;
 
-t_ray camera_to_pixel(t_pixel pixel, t_view *view);
-t_vector point_on_ray(t_ray *ray, double t);
+t_ray new_ray(t_vector origin, t_vector direction);
+t_vector get_point_on_ray(t_ray *ray, double t);
 
 /* ------------------------- color ------------------------- */
 typedef struct s_color

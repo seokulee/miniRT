@@ -3,6 +3,20 @@
 
 # include "hittable.h"
 
+/* ------------------------- view ------------------------- */
+typedef struct s_view
+{
+	int w_width;
+	int w_height;
+	double n_width;
+	double n_height;
+	t_vector camera;
+	t_vector left_top;
+} t_view;
+
+t_view new_view(int w_width, int w_height, t_vector camera);
+t_vector dir_to_pixel(t_pixel pixel, t_view *view);
+
 /* ------------------------- light ------------------------- */
 typedef struct s_light t_light;
 
