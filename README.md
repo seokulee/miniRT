@@ -4,7 +4,6 @@
 - [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
 - [레이트레이서를 C 언어로 만들어보는 실습 교재](https://github.com/GaepoMorningEagles/mini_raytracing_in_c)
 - [LearnOpenGL - Basic Lighting](https://learnopengl.com/Lighting/Basic-Lighting)
-- [GitHub - tjensen42/42-miniRT](https://github.com/tjensen42/42-miniRT)
 
 # Coordinate System
 
@@ -38,4 +37,3 @@
 
 - `w` : window
 - `n` : normalized
-- `dv` : direction vector from the point on the surface
