@@ -5,6 +5,7 @@ NAME = miniRT
 HDR_DIR = ./include/
 HDR = \
 	$(HDR_DIR)minirt.h \
+	$(HDR_DIR)parsing.h \
 	$(HDR_DIR)minilibx.h \
 	$(HDR_DIR)element.h \
 	$(HDR_DIR)hittable.h \
@@ -14,6 +15,7 @@ HDR = \
 SRCS = \
 	./src/main.c \
 	./src/rendering.c \
+	./src/parsing/parse.c \
 	./src/shading/phong_lighting.c \
 	./src/shading/constructor.c \
 	./src/shading/diffuse.c \

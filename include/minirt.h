@@ -2,6 +2,7 @@
 # define MINIRT_H
 
 # include "world.h"
+# include "parsing.h"
 
 # define WIDTH 400
 # define HEIGHT 300
