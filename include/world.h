@@ -30,6 +30,29 @@ struct s_light
 
 t_light *new_light(t_vector origin, t_color color, double bright_ratio);
 
+/* ------------------------- ambient ------------------------- */
+typedef struct s_ambient t_ambient;
+
+struct s_ambient
+{
+    t_color color;
+    double ratio;
+};
+
+t_ambient new_ambient(t_color color, double ratio);
+
+/* ------------------------- camera ------------------------- */
+typedef struct s_camera t_camera;
+
+struct s_camera
+{
+    t_vector position;
+    t_vector direction;
+    double fov;
+};
+
+t_camera new_camera(t_vector position, t_vector direction, double fov);
+
 /* ------------------------- world ------------------------- */
 typedef struct s_world
 {
@@ -37,7 +60,12 @@ typedef struct s_world
     t_hittable *last_object;
     t_light first_dummy_light;
     t_light *last_light;
-    t_color ambient;
+    t_ambient ambient;
+    t_camera camera;
+    size_t cnt_ambient;
+    size_t cnt_camera;
+    size_t cnt_lights;
+    size_t cnt_objects;
 } t_world;
 
 void init_world(t_world *world);

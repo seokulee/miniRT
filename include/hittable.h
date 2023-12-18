@@ -17,6 +17,8 @@ typedef struct s_discriminant
 typedef enum e_type
 {
     SPHERE,
+    PLANE,
+    CYLINDER,
 } t_type;
 
 typedef struct s_hittable t_hittable;
@@ -26,6 +28,8 @@ struct s_hittable
     t_type type;
     t_vector center;
     double radius;
+    double height;
+    t_vector normal;
     t_color color;
     t_hittable *next;
 };
@@ -33,6 +37,12 @@ struct s_hittable
 /* sphere */
 t_hittable *new_sphere(t_vector center, double radius, t_color color);
 t_discriminant sp_discriminant(t_ray *ray, t_hittable *sphere);
+
+/* plane */
+t_hittable *new_plane(t_vector position, t_vector normal, t_color color);
+
+/* cylinder */
+t_hittable *new_cylinder(t_vector position, t_vector normal, double diameter, double height, t_color color);
 
 /* ------------------------- hit record ------------------------- */
 typedef struct s_hit_record
