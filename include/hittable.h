@@ -5,6 +5,7 @@
 # include <stdlib.h>
 
 # define EPSILON 1e-6
+# define PI 3.14159265359
 
 typedef struct s_discriminant
 {
@@ -37,12 +38,6 @@ struct s_hittable
 /* sphere */
 t_hittable *new_sphere(t_vector center, double radius, t_color color);
 t_discriminant sp_discriminant(t_ray *ray, t_hittable *sphere);
-
-/* plane */
-t_hittable *new_plane(t_vector position, t_vector normal, t_color color);
-
-/* cylinder */
-t_hittable *new_cylinder(t_vector position, t_vector normal, double diameter, double height, t_color color);
 
 /* ------------------------- hit record ------------------------- */
 typedef struct s_hit_record

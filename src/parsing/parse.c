@@ -91,7 +91,7 @@ static int	get_components(t_world *world, char *open_file)
 		if (!ft_strcmp(tab[0], "A"))
 			get_ambient(world, tab);
 		else if (!ft_strcmp(tab[0], "C"))
-			get_camera(world, tab);
+			get_view(world, tab);
 		else if (!ft_strcmp(tab[0], "L"))
 			get_light(world, tab);
 		else

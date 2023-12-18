@@ -15,7 +15,6 @@ HDR = \
 SRCS = \
 	./src/main.c \
 	./src/rendering.c \
-	./src/parsing/parse.c \
 	./src/shading/phong_lighting.c \
 	./src/shading/constructor.c \
 	./src/shading/diffuse.c \

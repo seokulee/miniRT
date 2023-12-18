@@ -41,7 +41,7 @@ t_color phong_lighting(t_ray *ray, t_world *world, t_hit_record *rec)
 	t_direction dir;
 	t_light *light;
 
-	phong = new_phong_lighting(rec->color, world->ambient);
+	phong = new_phong_lighting(rec->color, &world->ambient);
 	light = world->first_dummy_light.next;
 	while (light)
 	{

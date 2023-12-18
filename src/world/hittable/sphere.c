@@ -1,13 +1,13 @@
 #include "hittable.h"
 
-t_hittable *new_sphere(t_vector center, double diameter, t_color color)
+t_hittable *new_sphere(t_vector center, double radius, t_color color)
 {
 	t_hittable *sphere;
 
 	sphere = malloc(sizeof(t_hittable));
 	sphere->type = SPHERE;
 	sphere->center = center;
-	sphere->radius = diameter / 2;
+	sphere->radius = radius;
 	sphere->color = color;
 	sphere->next = NULL;
 	return sphere;

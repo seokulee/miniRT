@@ -28,21 +28,21 @@ double	ft_atof(char *str)
 	return (res + decimal) * sign;
 }
 
-t_color get_rgb(const char *rgb_string)
+t_color get_color(const char *rgb_string)
 {
 	char	*token;
 	char	*tmp;
-    int     r;
-    int     g;
-    int     b;
+    double     r;
+    double     g;
+    double     b;
 
 	tmp = ft_strdup(rgb_string);
 	token = ft_strtok(tmp, ",");
-	r = ft_atoi(token);
+	r = (double)ft_atoi(token) / 255.0;
 	token = ft_strtok(NULL, ",");
-	g = ft_atoi(token);
+	g = (double)ft_atoi(token) / 255.0;
 	token = ft_strtok(NULL, ",");
-	b = ft_atoi(token);
+	b = (double)ft_atoi(token) / 255.0;
 	free(tmp);
     /* rgb valid check fucntion */
 	return (new_color(r, g, b));

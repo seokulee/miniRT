@@ -48,12 +48,12 @@ t_vector get_point_on_ray(t_ray *ray, double t);
 /* ------------------------- color ------------------------- */
 typedef struct s_color
 {
-	int r;
-	int g;
-	int b;
+	double r;
+	double g;
+	double b;
 } t_color;
 
-t_color new_color(int r, int g, int b);
+t_color new_color(double r, double g, double b);
 t_color multiply_ratio(t_color color, double ratio);
 t_color multiply_color(t_color c1, t_color c2);
 t_color add_color(t_color c1, t_color c2);

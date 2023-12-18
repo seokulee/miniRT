@@ -1,6 +1,6 @@
 #include "element.h"
 
-t_color new_color(int r, int g, int b)
+t_color new_color(double r, double g, double b)
 {
 	t_color color;
 

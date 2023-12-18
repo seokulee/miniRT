@@ -1,18 +1,24 @@
-#include "world.h"
+#include "parsing.h"
 
-void init_world(t_world *world)
+void init_world(t_world *world, int argc, char *rt_file)
 {
+	(void)argc; (void)rt_file;
+	// if (argc != 2)
+	// 	return (err_put_str("ERR_ARGC", 1));
 	world->last_object = &world->first_dummy_object;
 	world->last_light = &world->first_dummy_light;
-	world->ambient.color = multiply_ratio(new_color(1, 1, 1), 0.1);
 	world->cnt_ambient = 0;
 	world->cnt_camera = 0;
 	world->cnt_lights = 0;
 	world->cnt_objects = 0;
+	// if (read_rt_file(world, rt_file) == -1)
+	// 	return (err_put_str("ERR_FILE", 1));
 }
 
 void add_object(t_world *world, t_hittable *object)
 {
+	if (!object)
+		return;
 	world->last_object->next = object;
 	world->last_object = object;
 }
