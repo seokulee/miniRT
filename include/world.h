@@ -3,6 +3,8 @@
 
 # include "hittable.h"
 
+# define FOCAL_LENGTH 1.0
+
 /* ------------------------- view ------------------------- */
 typedef struct s_view
 {

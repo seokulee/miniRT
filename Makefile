@@ -26,7 +26,10 @@ SRCS = \
 	./src/world/element/vector/util.c \
 	./src/world/element/pixel.c \
 	./src/world/element/ray.c \
-	./src/world/hittable/record.c \
+	./src/world/hittable/hit.c \
+	./src/world/hittable/test.c \
+	./src/world/hittable/plane.c \
+	./src/world/hittable/cylinder.c \
 	./src/world/hittable/sphere.c \
 	./src/world/world.c \
 	./src/world/light.c \

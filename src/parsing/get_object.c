@@ -20,8 +20,9 @@ t_hittable *get_plane(char **tab)
     plane = malloc(sizeof(t_hittable));
     plane->type = PLANE;
 	plane->center = get_vector(tab[1]);
-	plane->normal = get_vector(tab[2]);
+	plane->normal = unit(get_vector(tab[2]));
 	plane->color = get_color(tab[3]);
+	plane->radius = 0;
     plane->next = NULL;
     return plane;
 }
@@ -33,7 +34,7 @@ t_hittable *get_cylinder(char **tab)
     cylinder = malloc(sizeof(t_hittable));
     cylinder->type = CYLINDER;
 	cylinder->center = get_vector(tab[1]);
-	cylinder->normal = get_vector(tab[2]);
+	cylinder->normal = unit(get_vector(tab[2]));
 	cylinder->radius = ft_atof(tab[3]) / 2.0;
 	cylinder->height = ft_atof(tab[4]);
 	cylinder->color = get_color(tab[5]);

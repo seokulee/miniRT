@@ -18,13 +18,15 @@ typedef struct s_vector
 } t_vector;
 
 t_vector new_vector(double x, double y, double z);
-t_vector add_vector(t_vector v1, t_vector v2);
-t_vector subtract_vector(t_vector v1, t_vector v2);
-t_vector multiply_scalar(t_vector vector, double scalar);
-double dot_product(t_vector v1, t_vector v2);
+t_vector v_add(t_vector v1, t_vector v2);
+t_vector v_subtract(t_vector v1, t_vector v2);
+t_vector v_multiply_scalar(t_vector vector, double scalar);
+double v_dot(t_vector v1, t_vector v2);
+t_vector v_cross(t_vector v1, t_vector v2);
 t_vector unit(t_vector vector);
 t_vector reverse(t_vector vector);
-double length(t_vector vector);
+double v_power(t_vector vector);
+double v_length(t_vector vector);
 
 /* ------------------------- pixel ------------------------- */
 typedef struct s_pixel

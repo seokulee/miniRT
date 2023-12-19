@@ -7,7 +7,7 @@ void diffuse(t_light *light, t_direction dir, t_phong_lighting *phong)
 	double diffuse_ratio;
 
 	existing_diffuse = phong->diffuse_sum;
-	diffuse_ratio = fmax(dot_product(dir.to_light_unit, dir.normal), 0.0);
+	diffuse_ratio = fmax(v_dot(dir.to_light_unit, dir.normal), 0.0);
 	new_diffuse = multiply_ratio(light->color, diffuse_ratio);
 	phong->diffuse_sum = add_color(existing_diffuse, new_diffuse);
 }

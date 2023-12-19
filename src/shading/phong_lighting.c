@@ -4,7 +4,7 @@ t_ray ray_to_light(t_vector hit_point, t_direction dir)
 {
 	t_vector calibrated;
 
-	calibrated = add_vector(hit_point, multiply_scalar(dir.normal, EPSILON));
+	calibrated = v_add(hit_point, v_multiply_scalar(dir.normal, EPSILON));
 	return new_ray(calibrated, dir.to_light_unit);
 }
 
@@ -14,7 +14,7 @@ t_bool in_shadow(t_world *world, t_direction dir, t_vector hit_point)
 	t_hittable *object;
 	t_ray ray;
 
-	rec = new_hit_record(length(dir.to_light), 0);
+	rec = new_hit_record(v_length(dir.to_light), 0);
 	ray = ray_to_light(hit_point, dir);
 	object = world->first_dummy_object.next;
 	while (object)

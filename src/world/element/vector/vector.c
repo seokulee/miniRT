@@ -10,7 +10,7 @@ t_vector new_vector(double x, double y, double z)
 	return vector;
 }
 
-t_vector add_vector(t_vector v1, t_vector v2)
+t_vector v_add(t_vector v1, t_vector v2)
 {
 	t_vector vector;
 
@@ -20,7 +20,7 @@ t_vector add_vector(t_vector v1, t_vector v2)
 	return vector;
 }
 
-t_vector subtract_vector(t_vector v1, t_vector v2)
+t_vector v_subtract(t_vector v1, t_vector v2)
 {
 	t_vector vector;
 
@@ -30,7 +30,7 @@ t_vector subtract_vector(t_vector v1, t_vector v2)
 	return vector;
 }
 
-t_vector multiply_scalar(t_vector vector, double scalar)
+t_vector v_multiply_scalar(t_vector vector, double scalar)
 {
 	vector.x *= scalar;
 	vector.y *= scalar;
@@ -38,7 +38,7 @@ t_vector multiply_scalar(t_vector vector, double scalar)
 	return vector;
 }
 
-double dot_product(t_vector v1, t_vector v2)
+double v_dot(t_vector v1, t_vector v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
