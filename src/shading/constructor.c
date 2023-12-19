@@ -20,7 +20,7 @@ t_direction new_direction_vectors(t_ray *ray, t_hit_record *rec, t_light *light)
 	dir.to_light = v_subtract(light->origin, rec->hit_point);
 	dir.to_light_unit = unit(dir.to_light);
 	dir.reflected = v_subtract(
-		v_multiply_scalar(dir.normal, v_dot(dir.to_light_unit, dir.normal) * 2),
+		v_multiple(dir.normal, v_dot(dir.to_light_unit, dir.normal) * 2),
 		dir.to_light_unit);
 	return dir;
 }

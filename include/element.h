@@ -20,7 +20,7 @@ typedef struct s_vector
 t_vector new_vector(double x, double y, double z);
 t_vector v_add(t_vector v1, t_vector v2);
 t_vector v_subtract(t_vector v1, t_vector v2);
-t_vector v_multiply_scalar(t_vector vector, double scalar);
+t_vector v_multiple(t_vector vector, double scalar);
 double v_dot(t_vector v1, t_vector v2);
 t_vector v_cross(t_vector v1, t_vector v2);
 t_vector unit(t_vector vector);

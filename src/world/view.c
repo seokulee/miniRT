@@ -10,42 +10,43 @@ t_view new_view(t_vector position, t_vector direction, double fov)
     return view;
 }
 
-double get_n_width(double fov)
+static t_vector get_left_top(t_view *view, t_vector z_axis)
 {
-	double theta;
-	double w;
+	t_vector left_top;
 
-	theta = fov * PI / 180.0;
-	w = tan(theta / 2.0);
-	return (2.0 * w * FOCAL_LENGTH);
+	left_top = v_subtract(view->position, v_multiple(z_axis, FOCAL_LENGTH));
+	left_top = v_subtract(left_top, v_multiple(view->x_axis, view->n_width));
+	left_top = v_add(left_top, v_multiple(view->y_axis, view->n_height));
+	return left_top;
 }
 
 void set_view_size(int w_width, int w_height, t_view *view)
 {
-	t_vector x_axis;
-	t_vector y_axis;
 	t_vector z_axis;
 	double aspect_ratio;
 
-	z_axis = unit(reverse(view->direction));
-	x_axis = unit(v_cross(view->direction, new_vector(0,1,0)));
-	y_axis = v_cross(z_axis, x_axis);
+	view->direction = unit(view->direction);
+	z_axis = reverse(view->direction);
+	view->x_axis = v_cross(view->direction, new_vector(0, 1, 0));
+	view->y_axis = v_cross(z_axis, view->x_axis);
 	view->w_height = w_height;
 	view->w_width = w_width;
-	view->n_width = get_n_width(view->fov);
+	view->n_width = tan(view->fov * PI / 360.0) * FOCAL_LENGTH;
 	aspect_ratio = (double)w_height / (double)w_width;
 	view->n_height = view->n_width * aspect_ratio;
-	view->left_top = v_subtract(view->position, v_multiply_scalar(z_axis, FOCAL_LENGTH));
-	view->left_top = v_subtract(view->left_top, v_multiply_scalar(x_axis, view->n_width / 2));
-	view->left_top = v_add(view->left_top, v_multiply_scalar(y_axis, view->n_height / 2));
+	view->left_top = get_left_top(view, z_axis);
 }
 
 t_vector dir_to_pixel(t_pixel pixel, t_view *view)
 {
-	double x;
-	double y;
+	double x_ratio;
+	double y_ratio;
+	t_vector direction;
 
-	x = view->n_width * ((double)pixel.x / view->w_width);
-	y = -view->n_height * ((double)pixel.y / view->w_height);
-	return v_add(view->left_top, new_vector(x, y, 0));
+	x_ratio = 2.0 * view->n_width * ((double)pixel.x / view->w_width);
+	y_ratio = 2.0 * view->n_height * ((double)pixel.y / view->w_height);
+	direction = v_add(view->left_top, v_multiple(view->x_axis, x_ratio));
+	direction = v_subtract(direction, v_multiple(view->y_axis, y_ratio));
+	direction = v_subtract(direction, view->position);
+	return direction;
 }

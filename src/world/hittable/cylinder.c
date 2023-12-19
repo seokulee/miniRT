@@ -21,7 +21,7 @@ static t_vector get_normal(t_hit_record *rec, t_hittable *cy)
 {
 	t_vector center;
 
-	center = v_add(cy->center, v_multiply_scalar(cy->normal, rec->height));
+	center = v_add(cy->center, v_multiple(cy->normal, rec->height));
 	return unit(v_subtract(rec->hit_point, center));
 }
 
@@ -52,7 +52,7 @@ static t_hittable new_cylinder_cap(t_hittable *cy, t_bool is_top)
     cap.normal = cy->normal;
 	if (!is_top)
 		cap.normal = reverse(cy->normal);
-	height = v_multiply_scalar(cap.normal, cy->height / 2.0);
+	height = v_multiple(cap.normal, cy->height / 2.0);
     cap.center = v_add(cy->center, height);
     cap.color = cy->color;
     cap.radius = cy->radius;

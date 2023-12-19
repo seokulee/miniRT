@@ -30,7 +30,7 @@ t_vector v_subtract(t_vector v1, t_vector v2)
 	return vector;
 }
 
-t_vector v_multiply_scalar(t_vector vector, double scalar)
+t_vector v_multiple(t_vector vector, double scalar)
 {
 	vector.x *= scalar;
 	vector.y *= scalar;

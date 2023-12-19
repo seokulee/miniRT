@@ -21,7 +21,7 @@ t_vector	unit(t_vector vector)
 
 t_vector reverse(t_vector vector)
 {
-	return v_multiply_scalar(vector, -1);
+	return v_multiple(vector, -1);
 }
 
 double v_power(t_vector vector)

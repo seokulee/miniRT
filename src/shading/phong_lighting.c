@@ -4,7 +4,7 @@ t_ray ray_to_light(t_vector hit_point, t_direction dir)
 {
 	t_vector calibrated;
 
-	calibrated = v_add(hit_point, v_multiply_scalar(dir.normal, EPSILON));
+	calibrated = v_add(hit_point, v_multiple(dir.normal, EPSILON));
 	return new_ray(calibrated, dir.to_light_unit);
 }
 

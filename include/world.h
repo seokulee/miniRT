@@ -12,9 +12,11 @@ typedef struct s_view
 	int w_height;
 	double n_width;
 	double n_height;
+    double fov;
 	t_vector position;
 	t_vector direction;
-    double fov;
+    t_vector x_axis;
+    t_vector y_axis;
 	t_vector left_top;
 } t_view;
 
