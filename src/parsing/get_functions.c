@@ -1,33 +1,5 @@
 #include "parsing.h"
 
-double	ft_atof(char *str)
-{
-	double	res;
-	double	decimal;
-	int		sign;
-	double	divisor;
-
-	sign = 1;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			sign = -1;
-	res = 0.0;
-	while (ft_isdigit(*str))
-		res = res * 10 + (*str++ - '0');
-	if (*str == '.')
-	{
-		str++;
-		divisor = 10.0;
-		decimal = 0.0;
-		while (ft_isdigit(*str))
-		{
-			decimal += (*str++ - '0') / divisor;
-			divisor *= 10;
-		}
-	}
-	return (res + decimal) * sign;
-}
-
 t_color get_color(const char *rgb_string)
 {
 	char	*token;
@@ -38,11 +10,11 @@ t_color get_color(const char *rgb_string)
 
 	tmp = ft_strdup(rgb_string);
 	token = ft_strtok(tmp, ",");
-	r = (double)ft_atoi(token) / 255.0;
+	r = (double)ft_atof(token) / 255.0;
 	token = ft_strtok(NULL, ",");
-	g = (double)ft_atoi(token) / 255.0;
+	g = (double)ft_atof(token) / 255.0;
 	token = ft_strtok(NULL, ",");
-	b = (double)ft_atoi(token) / 255.0;
+	b = (double)ft_atof(token) / 255.0;
 	free(tmp);
     /* rgb valid check fucntion */
 	return (new_color(r, g, b));

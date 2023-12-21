@@ -22,7 +22,11 @@ int read_rt_file(t_world *world, char *open_file)
 
 static int	control_identifier(t_world *wolrd, char *id)
 {
-	if (!ft_strcmp(id, "A"))
+	if (id == NULL)
+		return (-1);
+	else if (id[0] == '#' || id[0] == '\n')
+		return (1);
+	else if (!ft_strcmp(id, "A"))
 		wolrd->cnt_ambient++;
 	else if (!ft_strcmp(id, "C"))
 		wolrd->cnt_camera++;
@@ -45,7 +49,7 @@ static int  count_components(t_world *world, char *open_file)
     if (ft_open(&fd, open_file) == -1)
         return (-1);
     line = get_next_line(fd);
-    	while (line)
+    while (line)
 	{
 		tab = ft_split(line, ' ');
 		if (control_identifier(world, tab[0]) == -1)
@@ -88,14 +92,12 @@ static int	get_components(t_world *world, char *open_file)
 	while (line)
 	{
 		tab = ft_split(line, ' ');
-		if (!ft_strcmp(tab[0], "A"))
-			get_ambient(world, tab);
-		else if (!ft_strcmp(tab[0], "C"))
-			get_view(world, tab);
-		else if (!ft_strcmp(tab[0], "L"))
-			get_light(world, tab);
-		else
-			get_object(world, tab);
+		if (get_by_id(world, tab) == -1)
+		{
+			ft_free_tab(tab);
+			free(line);
+			return (-1);
+		}
 		ft_free_tab(tab);
 		free(line);
 		line = get_next_line(fd);
