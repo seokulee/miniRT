@@ -6,5 +6,5 @@ t_pixel	new_pixel(int x, int y)
 
 	pixel.x = x;
 	pixel.y = y;
-	return pixel;
+	return (pixel);
 }

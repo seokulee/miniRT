@@ -5,8 +5,10 @@ NAME = miniRT
 HDR_DIR = ./include/
 HDR = \
 	$(HDR_DIR)minirt.h \
+	$(HDR_DIR)parsing.h \
 	$(HDR_DIR)minilibx.h \
 	$(HDR_DIR)element.h \
+	$(HDR_DIR)error.h \
 	$(HDR_DIR)hittable.h \
 	$(HDR_DIR)world.h \
 	$(HDR_DIR)shading.h
@@ -20,15 +22,28 @@ SRCS = \
 	./src/shading/specular.c \
 	./src/minilibx/init.c \
 	./src/minilibx/hook.c \
+	./src/parsing/parse.c \
+	./src/parsing/get_functions.c \
+	./src/parsing/get_id.c \
+	./src/parsing/get_object.c \
+	./src/parsing/utils/get_next_line.c \
+	./src/parsing/utils/get_next_line_utils.c \
+	./src/parsing/utils/ft_split.c \
+	./src/parsing/utils/ft_functions.c \
+	./src/parsing/utils/ft_functions2.c \
+	./src/error/error.c \
 	./src/world/element/color.c \
 	./src/world/element/vector/vector.c \
 	./src/world/element/vector/util.c \
 	./src/world/element/pixel.c \
 	./src/world/element/ray.c \
-	./src/world/hittable/record.c \
+	./src/world/hittable/hit.c \
+	./src/world/hittable/plane.c \
+	./src/world/hittable/cylinder.c \
 	./src/world/hittable/sphere.c \
 	./src/world/world.c \
 	./src/world/light.c \
+	./src/world/ambient.c \
 	./src/world/view.c
 
 OBJS = $(SRCS:.c=.o)

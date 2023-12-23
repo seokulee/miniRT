@@ -16,16 +16,14 @@
 
 typedef struct s_mlx
 {
-    void    *mlx;
-	void    *win;
-
-	/* image */
+	void	*mlx;
+	void	*win;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_size;
 	int		endian;
-}   t_mlx;
+}	t_mlx;
 
 /* init.c */
 t_mlx	new_mlx(int width, int height);

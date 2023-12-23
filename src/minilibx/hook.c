@@ -9,10 +9,11 @@ int	destroy(t_mlx *mlx)
 
 int	key_hook(int keycode, t_mlx *mlx)
 {
-	if (keycode == ESC) {
+	if (keycode == ESC)
+	{
 		destroy(mlx);
 	}
-	return 0;
+	return (0);
 }
 
 void	mlx_hooks(t_mlx *mlx)
