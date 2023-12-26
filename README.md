@@ -6,6 +6,18 @@
 - [LearnOpenGL - Basic Lighting](https://learnopengl.com/Lighting/Basic-Lighting)
 - [GitHub - tjensen42/42-miniRT](https://github.com/tjensen42/42-miniRT)
 
+# Image
+
+- snowman
+<p align="center">
+  <img src="./asset/snowman.png" />
+</p>
+
+- lights
+<p align="center">
+  <img src="./asset/light.png" />
+</p>
+
 # Coordinate System
 
 <p align="center">
